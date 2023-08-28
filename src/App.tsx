@@ -9,6 +9,7 @@ function App()  {
                   h-screen 
                   bg-greySecond 
                   font-custom
+                  font-normal
                   flex
                   flex-col
                   items-center
