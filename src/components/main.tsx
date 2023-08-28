@@ -1,4 +1,5 @@
- export { default as GithubInfo } from './github-info/GithubInfo'
+export { default as GithubInfo } from './github-info/GithubInfo'
+export { default as GithubInfoDiv } from './github-info-div/GithubInfoDiv'
 export { default as LightSwitcher } from './light-switcher/LightSwitcher'
 export { default as SearchBtn } from './search-button/SearchBtn'
 export { default as UserInfo } from './user-info/UserInfo'
