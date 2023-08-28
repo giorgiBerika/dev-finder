@@ -1,13 +1,25 @@
-
+import { Header, SearchDiv, Result } from './app-body/main';
 
 function App()  {
 
 
   return (
-   <div className="w-screen h-screen bg-red-300 font-custom"> 
-      <h1 className="text-myColor">This is title</h1>
-   </div> 
+    <>
+   <div className="w-screen 
+                  h-screen 
+                  bg-greySecond 
+                  font-custom
+                  flex
+                  flex-col
+                  items-center
+                  justify-center
+                  "> 
+      <Header />
+      <SearchDiv />
+      <Result />
+   </div>
+   </> 
   )
 }
 
-export default App
+export default App;
