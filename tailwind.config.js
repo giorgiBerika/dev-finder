@@ -18,7 +18,8 @@ export default {
           blackFirst: '#2B3442',
           blackSecond: '#141D2F',
           whiteFirst: '#FEFEFE',
-          whiteSecond: 'FFFFFF'
+          whiteSecond: '#FFFFFF',
+          btnHover: '#60ABFF'
       }
     },
   },

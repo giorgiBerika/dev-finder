@@ -25,6 +25,8 @@ const SearchDiv: React.FC<SearchDivProps> = ({}) =>
           flex
           justify-between
           items-center
+          mt-9
+          mb-6
          '>
             <div className='
              flex
