@@ -22,7 +22,7 @@ const Header: React.FC<HeaderPorps> = ({}) =>
         '>
             <h2
             className='
-            text-2x1
+            text-2xl
             font-bold
             leading-normal
             text-gray-700
