@@ -2,10 +2,12 @@ import './GithubInfo.css';
 import React from 'react';
 import  { GithubInfoDiv }  from '../main';
 interface GithubInfoProps{
-
+    userRepos: number;
+    userFollowers: number;
+    userFollowing: number;
 }
 
-const GithubInfo: React.FC<GithubInfoProps> = ({}) =>
+const GithubInfo: React.FC<GithubInfoProps> = ({userRepos, userFollowers, userFollowing}) =>
 {
     return (
         <>
@@ -20,15 +22,15 @@ const GithubInfo: React.FC<GithubInfoProps> = ({}) =>
          '>
             <GithubInfoDiv 
                 divTitle='repos'
-                divNumber={8} 
+                infoNum={userRepos}
                 />  
             <GithubInfoDiv 
                 divTitle='followers'
-                divNumber={3938} 
+                infoNum={userFollowers} 
                 />  
             <GithubInfoDiv 
                 divTitle='following'
-                divNumber={9} 
+                infoNum={userFollowing} 
                 />  
          </div>       
         </>

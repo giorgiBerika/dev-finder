@@ -22,18 +22,27 @@ const Result: React.FC<ResultProps> = ({ btnClicked, setBtnClicked, inputVal, se
     const [joinDate, setJoinDate] = useState<string>('2011-01-25');
     const [avatarUrl, setAvatarUrl] = useState<string>('');
 
+    const [userRepos, setUserRepos] = useState<number>(8);
+    const [userFollowers, setUserFollowers] = useState<number>(3938);
+    const [userFollowing, setUserFollowing] = useState<number>(9);
+
+
     useEffect(() => {
         if (btnClicked) {
             axios.get(`https://api.github.com/users/${inputVal}`)
                 .then(response => {
                     let user = response.data;
-                    console.log(response.data);
                     setUserName(user.name);
                     setUserLogin(user.login);
                     setUserBio(user.bio || 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.');
                     setJoinDate(user.created_at);
-                    setInputVal('');
+                    
+                    setUserRepos(user.public_repos);
+                    setUserFollowers(user.followers);
+                    setUserFollowing(user.following);
+                    
                     setBtnClicked(false);
+                    setInputVal('');
                 })
                 .catch(error => {
                     console.error(error);
@@ -84,7 +93,11 @@ const Result: React.FC<ResultProps> = ({ btnClicked, setBtnClicked, inputVal, se
                  userBio={userBio}
                  joinDate={joinDate}
                 />
-                <GithubInfo />
+                <GithubInfo 
+                    userRepos={userRepos}
+                    userFollowers={userFollowers}
+                    userFollowing={userFollowing}
+                />
                 <UserLinks />
             </div>
         

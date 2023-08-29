@@ -3,10 +3,10 @@ import React from 'react';
 
 interface GithubInfoDivProps{
     divTitle: string;
-    divNumber: number;
+    infoNum: number;
 }
 
-const GithubInfoDiv: React.FC<GithubInfoDivProps> = ({ divTitle, divNumber}) =>
+const GithubInfoDiv: React.FC<GithubInfoDivProps> = ({ divTitle, infoNum}) =>
 {
     return (
         <>
@@ -28,7 +28,7 @@ const GithubInfoDiv: React.FC<GithubInfoDivProps> = ({ divTitle, divNumber}) =>
              font-bold
              leading-normal
              uppercase
-            '>{divNumber}</h3>  
+            '>{infoNum}</h3>  
          </div>       
         </>
     )
