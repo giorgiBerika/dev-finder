@@ -4,7 +4,9 @@ function App()  {
 
   const [btnClicked, setBtnClicked] = useState<boolean>(false);
   const [inputVal, setInputVal] = useState<string>('');
-
+ 
+  
+  const [foundUser, setFoundUser] = useState<boolean>(true);
   return (
     <>
    <div className="w-screen 
@@ -25,6 +27,8 @@ function App()  {
         
         setInputVal={setInputVal}
         inputVal={inputVal}
+
+        foundUser={foundUser}
         />
       <Result 
         btnClicked={btnClicked}
@@ -32,6 +36,8 @@ function App()  {
 
         setInputVal={setInputVal}
         inputVal={inputVal}
+
+        setFoundUser={setFoundUser}
       />
    </div>
    </> 

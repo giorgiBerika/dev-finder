@@ -9,12 +9,13 @@ interface ResultProps{
     setBtnClicked: (newValue: boolean) => void;
     inputVal: string;
     setInputVal: (newValue: string) => void;
+    setFoundUser: (newValue: boolean) => void;
 }
 
 
 
 
-const Result: React.FC<ResultProps> = ({ btnClicked, setBtnClicked, inputVal, setInputVal}) =>
+const Result: React.FC<ResultProps> = ({ setFoundUser, btnClicked, setBtnClicked, inputVal, setInputVal}) =>
 {
     
     const [userName, setUserName] = useState<string>('the octocat');
@@ -32,11 +33,13 @@ const Result: React.FC<ResultProps> = ({ btnClicked, setBtnClicked, inputVal, se
     const [userGitBlog, setUserGitBlog] = useState<string>('https://github.blog');
     const [userGitHub, setUserGitHub] = useState<string>('@github');
 
+
     useEffect(() => {
         if (btnClicked) {
             axios.get(`https://api.github.com/users/${inputVal}`)
                 .then(response => {
                     let user = response.data;
+                    setFoundUser(true)
                     setUserName(user.name);
                     setUserLogin(user.login);
                     setUserBio(user.bio || 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.');
@@ -58,6 +61,9 @@ const Result: React.FC<ResultProps> = ({ btnClicked, setBtnClicked, inputVal, se
                 })
                 .catch(error => {
                     console.error(error);
+                    setFoundUser(false);
+                    setBtnClicked(false);
+                    setInputVal('');
                 });
 
         }

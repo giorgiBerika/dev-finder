@@ -10,9 +10,10 @@ interface SearchDivProps{
   setBtnClicked: (newValue: boolean) => void;
   setInputVal: (newValue: string) => void;
   inputVal: string;
+  foundUser: boolean;
 }
 
-const SearchDiv: React.FC<SearchDivProps> = ({inputVal,setInputVal,  setBtnClicked }) =>
+const SearchDiv: React.FC<SearchDivProps> = ({inputVal,setInputVal,  setBtnClicked, foundUser }) =>
 {
   const onChangeHandler = (e: any) =>
   {
@@ -62,15 +63,17 @@ const SearchDiv: React.FC<SearchDivProps> = ({inputVal,setInputVal,  setBtnClick
             </div>
             <div className='
              flex
-             item-center
+             items-center
              justify-center
              space-x-6
             '>
-              {/* <span className='
+              {!foundUser && 
+              <span className='
                text-red-600
                text-1g
                font-semibold
-              '>No results</span> */}
+              '>No results</span>
+              }
               <SearchBtn 
                 setBtnClicked={setBtnClicked}
               /> 
