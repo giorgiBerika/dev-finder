@@ -16,6 +16,7 @@ interface ResultProps{
 
 const Result: React.FC<ResultProps> = ({ btnClicked, setBtnClicked, inputVal, setInputVal}) =>
 {
+    
     const [userName, setUserName] = useState<string>('the octocat');
     const [userLogin, setUserLogin] = useState<string>('octocat');
     const [userBio, setUserBio] = useState<string>('Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.')
@@ -26,6 +27,10 @@ const Result: React.FC<ResultProps> = ({ btnClicked, setBtnClicked, inputVal, se
     const [userFollowers, setUserFollowers] = useState<number>(3938);
     const [userFollowing, setUserFollowing] = useState<number>(9);
 
+    const [userLocation, setUserLocation] = useState<string>('san francisco');
+    const [userTwit, setUserTwit] = useState<string>('Not available');
+    const [userGitBlog, setUserGitBlog] = useState<string>('https://github.blog');
+    const [userGitHub, setUserGitHub] = useState<string>('@github');
 
     useEffect(() => {
         if (btnClicked) {
@@ -40,6 +45,13 @@ const Result: React.FC<ResultProps> = ({ btnClicked, setBtnClicked, inputVal, se
                     setUserRepos(user.public_repos);
                     setUserFollowers(user.followers);
                     setUserFollowing(user.following);
+                    
+                    setUserLocation(user.location || 'Not available');
+                    setUserTwit(user.twitter_username || 'Not available')
+                    setUserGitBlog(user.blog || 'Not available');
+                    setUserGitHub(user.company || 'Not available');
+
+                    setAvatarUrl(user.avatar_url ? user.avatar_url : userTestIcon)
                     
                     setBtnClicked(false);
                     setInputVal('');
@@ -67,7 +79,7 @@ const Result: React.FC<ResultProps> = ({ btnClicked, setBtnClicked, inputVal, se
          pl-12
         '>
             <img 
-                src={userTestIcon}
+                src={avatarUrl ? avatarUrl : userTestIcon}
                 alt='User Personal Icon'
                 className='
                     rounded-[100%]
@@ -98,7 +110,12 @@ const Result: React.FC<ResultProps> = ({ btnClicked, setBtnClicked, inputVal, se
                     userFollowers={userFollowers}
                     userFollowing={userFollowing}
                 />
-                <UserLinks />
+                <UserLinks 
+                    userLocation={userLocation}
+                    userTwit={userTwit}
+                    userGitBlog={userGitBlog}
+                    userGitHub={userGitHub}
+                />
             </div>
         
         </div>       

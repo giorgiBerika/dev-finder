@@ -8,10 +8,13 @@ import gitBlogIcon from '../../assets/github-icon.svg';
 import gitHubIcon from '../../assets/github-icon-2.svg';
 
 interface UserLinksProps{
-
+    userLocation: string;
+    userTwit: string;
+    userGitBlog: string;
+    userGitHub: string;
 }
 
-const UserLinks: React.FC<UserLinksProps> = ({}) =>
+const UserLinks: React.FC<UserLinksProps> = ({userGitBlog, userGitHub, userLocation, userTwit}) =>
 
 {
     return (
@@ -27,19 +30,19 @@ const UserLinks: React.FC<UserLinksProps> = ({}) =>
          '>
             <UserLinkDiv 
              imgSource={locationIcon}
-             linkText='san francisco'
+             linkText={userLocation}
             />
             <UserLinkDiv 
              imgSource={twitterIcon}
-             linkText='Not availabe'
+             linkText={userTwit}
             />
             <UserLinkDiv 
              imgSource={gitBlogIcon}
-             linkText='https://github.blog'
+             linkText={userGitBlog}
             />
             <UserLinkDiv 
              imgSource={gitHubIcon}
-             linkText='@github'
+             linkText={userGitHub}
             />
          </div>       
         </>
