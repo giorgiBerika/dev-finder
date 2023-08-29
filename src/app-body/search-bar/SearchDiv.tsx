@@ -6,11 +6,19 @@ import { SearchBtn  } from '../../components/main';
 import SearchLogo from '../../assets/search-icon.png';
 
 interface SearchDivProps{
-
+  btnClicked: boolean;
+  setBtnClicked: (newValue: boolean) => void;
+  setInputVal: (newValue: string) => void;
+  inputVal: string;
 }
 
-const SearchDiv: React.FC<SearchDivProps> = ({}) =>
+const SearchDiv: React.FC<SearchDivProps> = ({inputVal,setInputVal,  setBtnClicked }) =>
 {
+  const onChangeHandler = (e: any) =>
+  {
+    const input = e.target;
+    setInputVal(input.value);
+  }
     return (
         <>
          <div className='
@@ -48,6 +56,8 @@ const SearchDiv: React.FC<SearchDivProps> = ({}) =>
                   border-none
                   outline-none
                  ' 
+                 value={inputVal}
+                 onChange={(e) => onChangeHandler(e)}
                  placeholder='Search GitHub username…'/>
             </div>
             <div className='
@@ -61,7 +71,9 @@ const SearchDiv: React.FC<SearchDivProps> = ({}) =>
                text-1g
                font-semibold
               '>No results</span> */}
-              <SearchBtn /> 
+              <SearchBtn 
+                setBtnClicked={setBtnClicked}
+              /> 
             </div>
          </div>       
         </>

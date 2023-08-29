@@ -1,13 +1,31 @@
 import './UserInfo.css';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 interface UserInfoProps{
-
+  userName: string;
+  userLogin: string;
+  userBio: string;
+  joinDate: string;
 }
 
-const UserInfo: React.FC<UserInfoProps> = ({}) =>
+const UserInfo: React.FC<UserInfoProps> = ({userName, userLogin, userBio, joinDate}) =>
 {
-    return (
+  const monthArr: string[] = ['jan','feb','mar','apr',
+                              'may','jun','jul','aug',
+                              'sep','oct','nov','dec', 
+                             ]
+  const [joinYear, setJoinYear] = useState<string>('2011');
+  const [joinDay, setJoinDay] = useState<string>('25');
+  const [joinMonth, setJoinMonth] = useState<string>('jan');
+  useEffect (() => {
+    let [year, month, day] = joinDate.split('-');
+    console.log(year, month, day.slice(0,2));
+    setJoinYear(year); 
+    setJoinDay(day.slice(0,2));
+    setJoinMonth(monthArr[parseInt(month.slice(1,2)) - 1]) 
+    
+  }, [joinDate])
+  return (
         <>
          <div className='
           w-full
@@ -31,14 +49,14 @@ const UserInfo: React.FC<UserInfoProps> = ({}) =>
                   font-bold
                   capitalize
                   cursor-pointer
-                 '>the octocat</h2>
+                 '>{userName}</h2>
                  <span className='
                   text-blueCommon
                   text-base
                   font-normal
                   leading-normal
                   cursor-pointer
-                 '>@octocat</span>
+                 '>@{userLogin}</span>
              </div>
              <span className='
               text-greyFirst
@@ -46,7 +64,7 @@ const UserInfo: React.FC<UserInfoProps> = ({}) =>
               font-normal
               leading-normal
               capitalize
-             '>Joined 25 Jan 2011</span>
+             '>Joined {joinDay} {joinMonth} {joinYear}</span>
            </div>
           <p className='
            text-darkBlueFirst
@@ -57,10 +75,7 @@ const UserInfo: React.FC<UserInfoProps> = ({}) =>
            max-h-[50px]
            mt-5
           '>
-            Lorem ipsum dolor sit amet, 
-            consectetuer adipiscing elit. 
-            Donec odio. Quisque volutpat mattis 
-            eros.
+            {userBio}
            </p> 
          </div>      
         </>

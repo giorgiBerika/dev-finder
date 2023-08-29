@@ -2,11 +2,15 @@ import './SearchBtn.css';
 import React from 'react';
 
 interface SearchBtnProps{
-
+  setBtnClicked: (newValue: boolean) => void;
 }
 
-const SearchBtn: React.FC<SearchBtnProps> = ({}) =>
+const SearchBtn: React.FC<SearchBtnProps> = ({ setBtnClicked }) =>
 {
+  const onClickHandler = () =>
+  {
+     setBtnClicked(true);
+  }
     return (
         <>
           <button 
@@ -23,7 +27,9 @@ const SearchBtn: React.FC<SearchBtnProps> = ({}) =>
              hover:bg-btnHover
              transition-all
              duration-150
-             '>search</button>
+             '
+             onClick={() => onClickHandler()}
+             >search</button>
         </>
     )
 }
