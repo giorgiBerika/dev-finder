@@ -4,10 +4,11 @@ import React from 'react';
 import { LightSwitcher  } from '../../components/main';
 
 interface HeaderPorps {
-
+    setSwitcherOff: (newValue: boolean) => void;
+    switcherOff: boolean;
 }
 
-const Header: React.FC<HeaderPorps> = ({}) =>
+const Header: React.FC<HeaderPorps> = ({ setSwitcherOff, switcherOff }) =>
 {
     return (
         <>
@@ -21,14 +22,18 @@ const Header: React.FC<HeaderPorps> = ({}) =>
 
         '>
             <h2
-            className='
+            className={`
             text-2xl
             font-bold
             leading-normal
             text-gray-700
-            '
+            ${switcherOff ? 'text-whiteSecond' : 'text-gray-700'}
+            `}
             >devfinder</h2>
-            <LightSwitcher />
+            <LightSwitcher 
+                setSwitcherOff={setSwitcherOff}
+                switcherOff={switcherOff}
+            />
         </div>       
         </>
     )

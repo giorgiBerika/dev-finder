@@ -11,9 +11,11 @@ interface SearchDivProps{
   setInputVal: (newValue: string) => void;
   inputVal: string;
   foundUser: boolean;
+  switcherOff: boolean;
+  setSwitcherOff: (newValue: boolean) => void;
 }
 
-const SearchDiv: React.FC<SearchDivProps> = ({inputVal,setInputVal,  setBtnClicked, foundUser }) =>
+const SearchDiv: React.FC<SearchDivProps> = ({inputVal,setInputVal,  setBtnClicked, foundUser, switcherOff, setSwitcherOff }) =>
 {
   const onChangeHandler = (e: any) =>
   {
@@ -22,9 +24,8 @@ const SearchDiv: React.FC<SearchDivProps> = ({inputVal,setInputVal,  setBtnClick
   }
     return (
         <>
-         <div className='
+         <div className={`
           rounded-[15px]
-          bg-whiteFirst
           shadow-md
           max-w-[730px]
           w-full
@@ -36,7 +37,9 @@ const SearchDiv: React.FC<SearchDivProps> = ({inputVal,setInputVal,  setBtnClick
           items-center
           mt-9
           mb-6
-         '>
+          ${switcherOff ? 'bg-darkBlueSecond' : 'bg-whiteFirst'}
+         `}
+         >
             <div className='
              flex
              items-center
@@ -48,15 +51,16 @@ const SearchDiv: React.FC<SearchDivProps> = ({inputVal,setInputVal,  setBtnClick
                  src={SearchLogo}
                  alt='Search loop' />
                 <input
-                 className='
+                 className={`
                   text-base
-                  text-darkBlueFirst
+                  
                   font-normal
                   leading-6
                   min-w-[254px]
                   border-none
                   outline-none
-                 ' 
+                  ${switcherOff ? 'bg-darkBlueSecond text-whiteSecond' : 'bg-whiteFirst text-darkBlueFirst'}
+                 `}
                  value={inputVal}
                  onChange={(e) => onChangeHandler(e)}
                  placeholder='Search GitHub username…'/>

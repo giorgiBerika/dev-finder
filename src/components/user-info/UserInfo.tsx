@@ -6,9 +6,11 @@ interface UserInfoProps{
   userLogin: string;
   userBio: string;
   joinDate: string;
+  switcherOff: boolean;
+  setSwitcherOff: (newValue: boolean) => void;
 }
 
-const UserInfo: React.FC<UserInfoProps> = ({userName, userLogin, userBio, joinDate}) =>
+const UserInfo: React.FC<UserInfoProps> = ({userName, userLogin, userBio, joinDate, switcherOff, setSwitcherOff}) =>
 {
   const monthArr: string[] = ['jan','feb','mar','apr',
                               'may','jun','jul','aug',
@@ -43,13 +45,14 @@ const UserInfo: React.FC<UserInfoProps> = ({userName, userLogin, userBio, joinDa
               items-start
               gap-0.5
              '>
-                 <h2 className='
-                  text-blackFirst
+                 <h2 className={`
+                  
                   text-2xl
                   font-bold
                   capitalize
                   cursor-pointer
-                 '>{userName}</h2>
+                  ${switcherOff ? 'text-whiteSecond' : 'text-blackFirst'}
+                  `}>{userName}</h2>
                  <span className='
                   text-blueCommon
                   text-base
@@ -58,23 +61,23 @@ const UserInfo: React.FC<UserInfoProps> = ({userName, userLogin, userBio, joinDa
                   cursor-pointer
                  '>@{userLogin}</span>
              </div>
-             <span className='
-              text-greyFirst
+             <span className={`
               text-base
               font-normal
               leading-normal
               capitalize
-             '>Joined {joinDay} {joinMonth} {joinYear}</span>
+              ${switcherOff ? 'text-whiteSecond' : 'text-greyFirst'}
+              `}>Joined {joinDay} {joinMonth} {joinYear}</span>
            </div>
-          <p className='
-           text-darkBlueFirst
+          <p className={`
            text-sm
            font-normal
            leading-6
            w-full
            max-h-[50px]
            mt-5
-          '>
+           ${switcherOff ? 'text-whiteSecond' : 'text-darkBlueFirst'}
+          `}>
             {userBio}
            </p> 
          </div>      

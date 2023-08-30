@@ -4,9 +4,10 @@ import React from 'react';
 interface GithubInfoDivProps{
     divTitle: string;
     infoNum: number;
+    switchState: boolean;
 }
 
-const GithubInfoDiv: React.FC<GithubInfoDivProps> = ({ divTitle, infoNum}) =>
+const GithubInfoDiv: React.FC<GithubInfoDivProps> = ({ divTitle, infoNum, switchState}) =>
 {
     return (
         <>
@@ -15,20 +16,21 @@ const GithubInfoDiv: React.FC<GithubInfoDivProps> = ({ divTitle, infoNum}) =>
           flex-col
           items-start
          '>
-            <span className='
-             text-darkBlueFirst
+            <span className={`
              text-xs
              font-normal
              leading-normal
              capitalize
-            '>{divTitle}</span>
-            <h3 className='
-             text-blackFirst
+             ${switchState ? 'text-whiteSecond' : 'text-darkBlueFirst'}
+            `}>{divTitle}</span>
+            <h3 className={`
+             
              text-1g
              font-bold
              leading-normal
              uppercase
-            '>{infoNum}</h3>  
+             ${switchState ? 'text-whiteSecond' : 'text-blackFirst'}
+            `}>{infoNum}</h3>  
          </div>       
         </>
     )

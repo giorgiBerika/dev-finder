@@ -12,9 +12,10 @@ interface UserLinksProps{
     userTwit: string;
     userGitBlog: string;
     userGitHub: string;
+    switcherOff: boolean;
 }
 
-const UserLinks: React.FC<UserLinksProps> = ({userGitBlog, userGitHub, userLocation, userTwit}) =>
+const UserLinks: React.FC<UserLinksProps> = ({userGitBlog, userGitHub, userLocation, userTwit, switcherOff}) =>
 
 {
     return (
@@ -31,18 +32,22 @@ const UserLinks: React.FC<UserLinksProps> = ({userGitBlog, userGitHub, userLocat
             <UserLinkDiv 
              imgSource={locationIcon}
              linkText={userLocation}
-            />
+             switcherOff={switcherOff}
+             />
             <UserLinkDiv 
              imgSource={twitterIcon}
              linkText={userTwit}
-            />
+             switcherOff={switcherOff}
+             />
             <UserLinkDiv 
              imgSource={gitBlogIcon}
              linkText={userGitBlog}
-            />
+             switcherOff={switcherOff}
+             />
             <UserLinkDiv 
              imgSource={gitHubIcon}
              linkText={userGitHub}
+             switcherOff={switcherOff}
             />
          </div>       
         </>

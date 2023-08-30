@@ -2,13 +2,19 @@ import './LightSwitcher.css';
 import React from 'react';
 
 import MoonLogo from '../../assets/moon.svg';
+import SunLogo from '../../assets/sun.svg';
 
 interface LightSwitcherProps{
-
+    setSwitcherOff: (newValue: boolean) => void;
+    switcherOff: boolean;
 }
 
-const LightSwitcher: React.FC<LightSwitcherProps> = ({}) =>
+const LightSwitcher: React.FC<LightSwitcherProps> = ({ setSwitcherOff, switcherOff }) =>
 {
+    const onClickHandler = () =>
+    {
+        setSwitcherOff(!switcherOff);
+    }
     return (
         <>
         <div className='
@@ -17,18 +23,22 @@ const LightSwitcher: React.FC<LightSwitcherProps> = ({}) =>
          items-center
          gap-4
          cursor-pointer
-        '>
-            <span className='
+        '
+        onClick={() => onClickHandler()}
+        >
+            <span className=
+            {`
              text-xs
              font-bold
              leading-normal
              tracking-wider
-             text-greyFirst
              uppercase
-            '>dark</span>
+             ${switcherOff ? 'text-whiteSecond' : 'text-greyFirst'}
+            `}
+            >{switcherOff ? 'light' : 'dark'}</span>
             <img 
-             src={MoonLogo}
-             alt='Half-Moon logo' /> 
+             src={switcherOff ? SunLogo : MoonLogo}
+             alt={switcherOff ? 'Sun logo' : 'Half-moon logo'} /> 
         </div>       
         </>
     )

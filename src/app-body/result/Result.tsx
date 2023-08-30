@@ -10,12 +10,14 @@ interface ResultProps{
     inputVal: string;
     setInputVal: (newValue: string) => void;
     setFoundUser: (newValue: boolean) => void;
+    switcherOff: boolean;
+    setSwitcherOff: (newValue: boolean) => void;
 }
 
 
 
 
-const Result: React.FC<ResultProps> = ({ setFoundUser, btnClicked, setBtnClicked, inputVal, setInputVal}) =>
+const Result: React.FC<ResultProps> = ({ setFoundUser, btnClicked, setBtnClicked, inputVal, setInputVal, switcherOff, setSwitcherOff}) =>
 {
     
     const [userName, setUserName] = useState<string>('the octocat');
@@ -60,7 +62,7 @@ const Result: React.FC<ResultProps> = ({ setFoundUser, btnClicked, setBtnClicked
                     setInputVal('');
                 })
                 .catch(error => {
-                    console.error(error);
+                    console.error(error, "No result!");
                     setFoundUser(false);
                     setBtnClicked(false);
                     setInputVal('');
@@ -71,10 +73,10 @@ const Result: React.FC<ResultProps> = ({ setFoundUser, btnClicked, setBtnClicked
 
     return (
         <>
-        <div className='
+        <div className={`
          flex
          items-start
-         bg-whiteFirst
+         
          rounded-[15px]
          gap-9
          max-w-[730px]
@@ -83,7 +85,8 @@ const Result: React.FC<ResultProps> = ({ setFoundUser, btnClicked, setBtnClicked
          pr-12
          pb-12
          pl-12
-        '>
+        ${switcherOff ? 'bg-darkBlueSecond' : 'bg-whiteFirst'}
+        `}>
             <img 
                 src={avatarUrl ? avatarUrl : userTestIcon}
                 alt='User Personal Icon'
@@ -110,17 +113,24 @@ const Result: React.FC<ResultProps> = ({ setFoundUser, btnClicked, setBtnClicked
                  userLogin={userLogin}
                  userBio={userBio}
                  joinDate={joinDate}
+
+                 setSwitcherOff={setSwitcherOff}
+                 switcherOff={switcherOff}
                 />
                 <GithubInfo 
                     userRepos={userRepos}
                     userFollowers={userFollowers}
                     userFollowing={userFollowing}
+
+                    switcherOff={switcherOff}
                 />
                 <UserLinks 
                     userLocation={userLocation}
                     userTwit={userTwit}
                     userGitBlog={userGitBlog}
                     userGitHub={userGitHub}
+
+                    switcherOff={switcherOff}
                 />
             </div>
         

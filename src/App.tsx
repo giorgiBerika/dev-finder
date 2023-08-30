@@ -2,6 +2,8 @@ import { Header, SearchDiv, Result } from './app-body/main';
 import React,  { useState } from 'react';
 function App()  {
 
+  const [switcherOff, setSwitcherOff] = useState<boolean>(false);
+
   const [btnClicked, setBtnClicked] = useState<boolean>(false);
   const [inputVal, setInputVal] = useState<string>('');
  
@@ -9,17 +11,23 @@ function App()  {
   const [foundUser, setFoundUser] = useState<boolean>(true);
   return (
     <>
-   <div className="w-screen 
+   <div className={`
+                   w-screen 
                   h-screen 
-                  bg-greySecond 
                   font-custom
                   font-normal
                   flex
                   flex-col
                   items-center
                   justify-center
-                  "> 
+                  ${switcherOff ? `bg-blackSecond`: `bg-greySecond`}
+   `}
+  //                 
+  //                 "
+                  > 
       <Header 
+        setSwitcherOff={setSwitcherOff}
+        switcherOff={switcherOff}
        />
       <SearchDiv 
         btnClicked={btnClicked}
@@ -29,6 +37,9 @@ function App()  {
         inputVal={inputVal}
 
         foundUser={foundUser}
+
+        setSwitcherOff={setSwitcherOff}
+        switcherOff={switcherOff}
         />
       <Result 
         btnClicked={btnClicked}
@@ -38,6 +49,9 @@ function App()  {
         inputVal={inputVal}
 
         setFoundUser={setFoundUser}
+
+        setSwitcherOff={setSwitcherOff}
+        switcherOff={switcherOff}
       />
    </div>
    </> 
