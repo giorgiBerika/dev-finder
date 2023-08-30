@@ -7,10 +7,9 @@ interface UserInfoProps{
   userBio: string;
   joinDate: string;
   switcherOff: boolean;
-  setSwitcherOff: (newValue: boolean) => void;
 }
 
-const UserInfo: React.FC<UserInfoProps> = ({userName, userLogin, userBio, joinDate, switcherOff, setSwitcherOff}) =>
+const UserInfo: React.FC<UserInfoProps> = ({userName, userLogin, userBio, joinDate, switcherOff}) =>
 {
   const monthArr: string[] = ['jan','feb','mar','apr',
                               'may','jun','jul','aug',
@@ -47,7 +46,8 @@ const UserInfo: React.FC<UserInfoProps> = ({userName, userLogin, userBio, joinDa
              '>
                  <h2 className={`
                   
-                  text-2xl
+                  sm:text-2xl
+                  text-base
                   font-bold
                   capitalize
                   cursor-pointer
@@ -55,14 +55,16 @@ const UserInfo: React.FC<UserInfoProps> = ({userName, userLogin, userBio, joinDa
                   `}>{userName}</h2>
                  <span className='
                   text-blueCommon
-                  text-base
+                  sm:text-base
+                  text-sm
                   font-normal
                   leading-normal
                   cursor-pointer
                  '>@{userLogin}</span>
              </div>
              <span className={`
-              text-base
+              sm:text-base
+              text-sm
               font-normal
               leading-normal
               capitalize
@@ -74,7 +76,7 @@ const UserInfo: React.FC<UserInfoProps> = ({userName, userLogin, userBio, joinDa
            font-normal
            leading-6
            w-full
-           max-h-[50px]
+           sm:max-h-[50px]
            mt-5
            ${switcherOff ? 'text-whiteSecond' : 'text-darkBlueFirst'}
           `}>

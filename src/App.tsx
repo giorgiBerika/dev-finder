@@ -13,7 +13,7 @@ function App()  {
     <>
    <div className={`
                    w-screen 
-                  h-screen 
+                  min-h-screen
                   font-custom
                   font-normal
                   flex
@@ -22,8 +22,7 @@ function App()  {
                   justify-center
                   ${switcherOff ? `bg-blackSecond`: `bg-greySecond`}
    `}
-  //                 
-  //                 "
+  
                   > 
       <Header 
         setSwitcherOff={setSwitcherOff}

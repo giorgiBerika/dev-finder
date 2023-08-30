@@ -27,7 +27,9 @@ const SearchDiv: React.FC<SearchDivProps> = ({inputVal,setInputVal,  setBtnClick
          <div className={`
           rounded-[15px]
           shadow-md
-          max-w-[730px]
+          md:max-w-[730px]
+          sm:max-w-[700px]
+          
           w-full
           p-[9.5px]
           px-[10px]
@@ -52,11 +54,12 @@ const SearchDiv: React.FC<SearchDivProps> = ({inputVal,setInputVal,  setBtnClick
                  alt='Search loop' />
                 <input
                  className={`
-                  text-base
-                  
+                  sm:text-base
+                  text-sm
                   font-normal
                   leading-6
-                  min-w-[254px]
+                  ms:min-w-[254px]
+                  min-w-[150px]
                   border-none
                   outline-none
                   ${switcherOff ? 'bg-darkBlueSecond text-whiteSecond' : 'bg-whiteFirst text-darkBlueFirst'}
@@ -67,14 +70,19 @@ const SearchDiv: React.FC<SearchDivProps> = ({inputVal,setInputVal,  setBtnClick
             </div>
             <div className='
              flex
+             sm:flex-row
+             flex-col-reverse
              items-center
              justify-center
-             space-x-6
+             sm:space-x-6
+             space-x-0
             '>
               {!foundUser && 
               <span className='
                text-red-600
-               text-1g
+               sm:text-base
+               text-xs
+               
                font-semibold
               '>No results</span>
               }

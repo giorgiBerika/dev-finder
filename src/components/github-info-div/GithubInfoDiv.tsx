@@ -25,7 +25,8 @@ const GithubInfoDiv: React.FC<GithubInfoDivProps> = ({ divTitle, infoNum, switch
             `}>{divTitle}</span>
             <h3 className={`
              
-             text-1g
+             sm:text-1g
+             text-base
              font-bold
              leading-normal
              uppercase

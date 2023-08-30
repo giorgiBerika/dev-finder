@@ -44,7 +44,7 @@ const Result: React.FC<ResultProps> = ({ setFoundUser, btnClicked, setBtnClicked
                     setFoundUser(true)
                     setUserName(user.name);
                     setUserLogin(user.login);
-                    setUserBio(user.bio || 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros.');
+                    setUserBio(user.bio || 'This profile has no bio.');
                     setJoinDate(user.created_at);
                     
                     setUserRepos(user.public_repos);
@@ -75,8 +75,10 @@ const Result: React.FC<ResultProps> = ({ setFoundUser, btnClicked, setBtnClicked
         <>
         <div className={`
          flex
-         items-start
-         
+         md:flex-row
+         flex-col 
+         md:items-start
+         items-center
          rounded-[15px]
          gap-9
          max-w-[730px]
@@ -103,6 +105,7 @@ const Result: React.FC<ResultProps> = ({ setFoundUser, btnClicked, setBtnClicked
              className='
               flex
               flex-col
+              
               items-start
               max-w-[480px]
               w-full
@@ -114,7 +117,6 @@ const Result: React.FC<ResultProps> = ({ setFoundUser, btnClicked, setBtnClicked
                  userBio={userBio}
                  joinDate={joinDate}
 
-                 setSwitcherOff={setSwitcherOff}
                  switcherOff={switcherOff}
                 />
                 <GithubInfo 

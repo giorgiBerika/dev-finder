@@ -17,13 +17,15 @@ const LightSwitcher: React.FC<LightSwitcherProps> = ({ setSwitcherOff, switcherO
     }
     return (
         <>
-        <div className='
+        <div className={`
          flex
          justify-center
          items-center
          gap-4
          cursor-pointer
-        '
+         
+         ${!switcherOff ? 'group' : ''}
+        `}
         onClick={() => onClickHandler()}
         >
             <span className=
@@ -33,12 +35,19 @@ const LightSwitcher: React.FC<LightSwitcherProps> = ({ setSwitcherOff, switcherO
              leading-normal
              tracking-wider
              uppercase
+             group-hover:text-switcherHoverDark
+             duration-150
              ${switcherOff ? 'text-whiteSecond' : 'text-greyFirst'}
-            `}
-            >{switcherOff ? 'light' : 'dark'}</span>
+             `}
+             >{switcherOff ? 'light' : 'dark'}</span>
             <img 
              src={switcherOff ? SunLogo : MoonLogo}
-             alt={switcherOff ? 'Sun logo' : 'Half-moon logo'} /> 
+             alt={switcherOff ? 'Sun logo' : 'Half-moon logo'}
+             className='group-hover:brightness-50
+             duration-150
+             '
+             
+             /> 
         </div>       
         </>
     )

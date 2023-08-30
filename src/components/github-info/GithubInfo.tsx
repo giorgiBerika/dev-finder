@@ -20,6 +20,7 @@ const GithubInfo: React.FC<GithubInfoProps> = ({userRepos, userFollowers, userFo
           justify-around
           w-full
           py-4
+          
           ${switcherOff ? 'bg-blackSecond' : 'bg-greySecond'}
           `}>
             <GithubInfoDiv 

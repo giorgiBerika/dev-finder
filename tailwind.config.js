@@ -19,7 +19,8 @@ export default {
           blackSecond: '#141D2F',
           whiteFirst: '#FEFEFE',
           whiteSecond: '#FFFFFF',
-          btnHover: '#60ABFF'
+          btnHover: '#60ABFF',
+          switcherHoverDark: '#222731'
       }
     },
   },

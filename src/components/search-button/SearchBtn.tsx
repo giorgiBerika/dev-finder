@@ -17,12 +17,15 @@ const SearchBtn: React.FC<SearchBtnProps> = ({ setBtnClicked }) =>
             className='
              rounded -[10px]
              bg-blueCommon
-             p-[13.5px]
-             px-[24px]
+             md:p-[13.5px]
+             md:px-[24px]
+             p-[12.5px]
+             px-[16px]
              text-whiteSecond
              capitalize
              font-bold
-             text-base
+             sm:text-base
+             text-sm
              leading-normal
              hover:bg-btnHover
              transition-all

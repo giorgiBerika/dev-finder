@@ -23,7 +23,8 @@ const UserLinks: React.FC<UserLinksProps> = ({userGitBlog, userGitHub, userLocat
          <div className='
           w-full
           grid
-          grid-cols-2
+          ms:grid-cols-2
+          grid-cols-1
           gap-y-5
           gap-x-16
           mt-10

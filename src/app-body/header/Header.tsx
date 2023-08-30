@@ -17,9 +17,12 @@ const Header: React.FC<HeaderPorps> = ({ setSwitcherOff, switcherOff }) =>
         flex
         justify-between
         items-center
-        max-w-[730px]
+        md:max-w-[730px]
+        max-w-[700px]
+        md:px-0
+        px-5
         w-full
-
+        mt-2
         '>
             <h2
             className={`
