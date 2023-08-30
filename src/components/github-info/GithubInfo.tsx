@@ -1,6 +1,7 @@
 import './GithubInfo.css';
 import React from 'react';
 import  { GithubInfoDiv }  from '../main';
+
 interface GithubInfoProps{
     userRepos: number;
     userFollowers: number;
@@ -13,14 +14,12 @@ const GithubInfo: React.FC<GithubInfoProps> = ({userRepos, userFollowers, userFo
     return (
         <>
          <div className={`
-          rounded-[10px]
-          
+          rounded-[10px]    
           flex
           items-center
           justify-around
           w-full
           py-4
-          
           ${switcherOff ? 'bg-blackSecond' : 'bg-greySecond'}
           `}>
             <GithubInfoDiv 

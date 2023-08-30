@@ -12,10 +12,11 @@ interface SearchDivProps{
   inputVal: string;
   foundUser: boolean;
   switcherOff: boolean;
-  setSwitcherOff: (newValue: boolean) => void;
 }
 
-const SearchDiv: React.FC<SearchDivProps> = ({inputVal,setInputVal,  setBtnClicked, foundUser, switcherOff, setSwitcherOff }) =>
+const SearchDiv: React.FC<SearchDivProps> = ({inputVal, setInputVal,  
+                                              setBtnClicked, foundUser, 
+                                              switcherOff }) =>
 {
   const onChangeHandler = (e: any) =>
   {

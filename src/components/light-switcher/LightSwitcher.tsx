@@ -45,8 +45,7 @@ const LightSwitcher: React.FC<LightSwitcherProps> = ({ setSwitcherOff, switcherO
              alt={switcherOff ? 'Sun logo' : 'Half-moon logo'}
              className='group-hover:brightness-50
              duration-150
-             '
-             
+             ' 
              /> 
         </div>       
         </>

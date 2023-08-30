@@ -11,13 +11,11 @@ interface ResultProps{
     setInputVal: (newValue: string) => void;
     setFoundUser: (newValue: boolean) => void;
     switcherOff: boolean;
-    setSwitcherOff: (newValue: boolean) => void;
 }
 
-
-
-
-const Result: React.FC<ResultProps> = ({ setFoundUser, btnClicked, setBtnClicked, inputVal, setInputVal, switcherOff, setSwitcherOff}) =>
+const Result: React.FC<ResultProps> = ({ setFoundUser, btnClicked, 
+                                        setBtnClicked, inputVal, 
+                                        setInputVal, switcherOff}) =>
 {
     
     const [userName, setUserName] = useState<string>('the octocat');

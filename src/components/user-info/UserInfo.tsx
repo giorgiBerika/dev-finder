@@ -9,7 +9,9 @@ interface UserInfoProps{
   switcherOff: boolean;
 }
 
-const UserInfo: React.FC<UserInfoProps> = ({userName, userLogin, userBio, joinDate, switcherOff}) =>
+const UserInfo: React.FC<UserInfoProps> = ({userName, userLogin, 
+                                            userBio, joinDate, 
+                                            switcherOff}) =>
 {
   const monthArr: string[] = ['jan','feb','mar','apr',
                               'may','jun','jul','aug',
@@ -20,7 +22,6 @@ const UserInfo: React.FC<UserInfoProps> = ({userName, userLogin, userBio, joinDa
   const [joinMonth, setJoinMonth] = useState<string>('jan');
   useEffect (() => {
     let [year, month, day] = joinDate.split('-');
-    console.log(year, month, day.slice(0,2));
     setJoinYear(year); 
     setJoinDay(day.slice(0,2));
     setJoinMonth(monthArr[parseInt(month.slice(1,2)) - 1]) 

@@ -1,5 +1,5 @@
 import { Header, SearchDiv, Result } from './app-body/main';
-import React,  { useState } from 'react';
+import { useState } from 'react';
 function App()  {
 
   const [switcherOff, setSwitcherOff] = useState<boolean>(false);
@@ -37,7 +37,6 @@ function App()  {
 
         foundUser={foundUser}
 
-        setSwitcherOff={setSwitcherOff}
         switcherOff={switcherOff}
         />
       <Result 
@@ -49,8 +48,8 @@ function App()  {
 
         setFoundUser={setFoundUser}
 
-        setSwitcherOff={setSwitcherOff}
         switcherOff={switcherOff}
+        
       />
    </div>
    </> 
