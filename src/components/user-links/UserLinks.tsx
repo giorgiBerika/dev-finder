@@ -1,4 +1,3 @@
-import './UserLinks.css';
 import React from 'react';
 import { UserLinkDiv } from '../main';
 

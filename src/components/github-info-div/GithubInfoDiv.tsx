@@ -1,4 +1,3 @@
-import './GithubInfoDiv.css';
 import React from 'react';
 
 interface GithubInfoDivProps{

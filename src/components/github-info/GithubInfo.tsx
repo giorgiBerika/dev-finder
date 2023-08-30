@@ -1,4 +1,3 @@
-import './GithubInfo.css';
 import React from 'react';
 import  { GithubInfoDiv }  from '../main';
 

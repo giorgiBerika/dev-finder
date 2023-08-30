@@ -1,4 +1,3 @@
-import './SearchDiv.css';
 import React from 'react';
 
 import { SearchBtn  } from '../../components/main';

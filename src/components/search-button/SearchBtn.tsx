@@ -1,4 +1,3 @@
-import './SearchBtn.css';
 import React from 'react';
 
 interface SearchBtnProps{

@@ -1,4 +1,3 @@
-import './Result.css';
 import React, {useState, useEffect} from 'react';
 import { GithubInfo, UserInfo, UserLinks } from '../../components/main';
 import userTestIcon from '../../assets/user-icon-test.png';

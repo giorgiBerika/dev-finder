@@ -1,4 +1,3 @@
-import './LightSwitcher.css';
 import React from 'react';
 
 import MoonLogo from '../../assets/moon.svg';

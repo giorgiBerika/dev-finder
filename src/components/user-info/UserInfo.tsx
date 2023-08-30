@@ -1,4 +1,3 @@
-import './UserInfo.css';
 import React, {useEffect, useState} from 'react';
 
 interface UserInfoProps{

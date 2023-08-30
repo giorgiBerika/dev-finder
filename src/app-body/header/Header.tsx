@@ -1,4 +1,3 @@
-import './Header.css';
 import React from 'react';
 
 import { LightSwitcher  } from '../../components/main';
